@@ -1,23 +1,86 @@
-import React from 'react';
-import background from '../assets/background.jpg';
-import Navbar from './Navbar';
+import React, { useState, useEffect } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import back from "../assets/Images/1.jpg";
+import back2 from "../assets/Images/2.jpg";
+import back3 from "../assets/Images/3.jpg";
+import back4 from "../assets/Images/4.jpg";
+
+const images = [back, back2, back3, back4];
 
 const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
   return (
-    <div 
-      className="flex flex-col justify-center items-center w-full h-[700px] bg-black bg-cover bg-center" 
-      style={{ backgroundImage: `url(${background})` }}
+    <div
+      className="relative flex flex-col w-full h-screen bg-cover bg-center transition-all duration-500"
+      style={{ backgroundImage: `url(${images[currentIndex]})` }}
     >
-   
-      <Navbar />
-      
-    
-      <div className="text-white text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Our Site</h1>
-        <p className="text-lg">We are glad to have you here. Explore and enjoy!</p>
+      {/* Centered Content */}
+      <div className="absolute inset-0 flex items-center justify-center flex-col text-white py-20">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
+          className="text-[#fff72e] text-6xl font-bold mb-4"
+        >
+          Welcome to Our Site
+        </motion.h1>
+        <motion.p
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2, delay: 1.5 }}
+          className="text-lg"
+        >
+          We are glad to have you here. Explore and enjoy!
+        </motion.p>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="absolute bottom-10 w-full flex items-center justify-center space-x-4">
+        <button
+          onClick={handlePrevClick}
+          className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
+        >
+          <FaChevronLeft />
+        </button>
+
+        <div className="flex space-x-2">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`h-4 w-4 rounded-full cursor-pointer ${index === currentIndex ? 'bg-yellow-400' : 'bg-gray-500'}`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
+        </div>
+
+        <button onClick={handleNextClick} className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400">
+          <FaChevronRight />
+        </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;
