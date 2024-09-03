@@ -3,6 +3,25 @@ import back2 from "../assets/Images/6.jpg";
 import back3 from "../assets/Images/7.jpg";
 import back4 from "../assets/Images/8.jpg";
 import { useEffect,useState } from "react";
+
+const extractVideoId = (url) => {
+  // Ensure the URL is a string
+  if (typeof url !== 'string') return null;
+
+  // Check if URL contains 'v='
+  const vIndex = url.indexOf('v=');
+  if (vIndex === -1) return null;
+
+  // Extract the video ID starting right after 'v='
+  const videoIdStart = vIndex + 2;
+  const ampersandIndex = url.indexOf('&', videoIdStart);
+  
+  // If there's no ampersand, the ID extends to the end of the string
+  const videoIdEnd = ampersandIndex === -1 ? url.length : ampersandIndex;
+  
+  return url.substring(videoIdStart, videoIdEnd);
+};
+
 export const FoodFeatch = () => {
      const [product, setProducts ] = useState([]);
 
@@ -89,7 +108,7 @@ export const FoodFeatch = () => {
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/rllQsUw1hFQ`}
+            src={`https://www.youtube.com/embed/${extractVideoId(product.strYoutube)}`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -108,12 +127,12 @@ export const FoodFeatch = () => {
     </div>
      
 
-    <div className="w-full flex justify-center items-center ">
-      <div className=" rounded-full overflow-hidden shadow-lg">
+    <div className="w-full  h-full flex justify-center items-center ">
+      <div className=" overflow-hidden shadow-lg">
         <img 
           src= {product.strMealThumb}
           alt="Cheese Burger" 
-          className="w-full h-full object-cover" 
+          className="w-full h-[900px] object-contain" 
         />
       </div>
     </div>
