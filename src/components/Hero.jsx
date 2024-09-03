@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import back from "../assets/Images/1.jpg";
-import back2 from "../assets/Images/2.jpg";
-import back3 from "../assets/Images/3.jpg";
-import back4 from "../assets/Images/4.jpg";
+import back from "../assets/Images/5.jpg";
+import back2 from "../assets/Images/6.jpg";
+import back3 from "../assets/Images/7.jpg";
+import back4 from "../assets/Images/8.jpg";
 
 const images = [back, back2, back3, back4];
 
