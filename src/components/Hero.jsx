@@ -42,17 +42,17 @@ const Hero = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
-          className="text-[#fff72e] text-6xl font-bold mb-4"
+          className="text-[#fff72e] text-9xl font-dancing mb-8"
         >
-          Welcome to Our Site
+          Jozi Food Maker
         </motion.h1>
         <motion.p
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2, delay: 1.5 }}
-          className="text-lg"
+          className="text-8xl uppercase font-extrabold"
         >
-          We are glad to have you here. Explore and enjoy!
+          Done right
         </motion.p>
       </div>
 

@@ -9,10 +9,10 @@ const Navbar = () => {
           <img src={Logo} className="h-[150px]" alt="Logo" />
         </a>
         <nav className="space-x-5 py-8">
-          <a href="" className="text-[#fff72e] text-xl hover:text-white">Home</a>
-          <a href="" className="text-[#fff72e] text-xl hover:text-white">Menu</a>
-          <a href="" className="text-[#fff72e] text-xl hover:text-white">About</a>
-          <a href="" className="text-[#fff72e] text-xl hover:text-white">Contact</a>
+          <a href="/" className="text-[#fff72e] text-xl hover:text-white">Home</a>
+          <a href="#menu" className="text-[#fff72e] text-xl hover:text-white">Menu</a>
+          <a href="#about" className="text-[#fff72e] text-xl hover:text-white">About</a>
+          <a href="#contact" className="text-[#fff72e] text-xl hover:text-white">Contact</a>
         </nav>
       </div>
     </div>

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -6,9 +7,10 @@ export default {
   ],
   theme: {
     extend: {
-     
+      fontFamily: {
+        dancing: ['Pacifico', 'sans-serif'],
+      },
     },
   },
   plugins: [],
 }
-
