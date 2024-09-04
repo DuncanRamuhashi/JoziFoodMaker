@@ -8,7 +8,7 @@ export const Footer = () => {
               <p> 6037  South BLVD CHARLOTTE, GP 0746195664   </p>
 
           </div>
-          <div className='flex space-x-28 mt-8 font-bold text-white'>
+          <div className='flex space-x-28 mt-8 font-bold text-white px-6'>
               <div>
                   <p className>HOME</p>
               </div>

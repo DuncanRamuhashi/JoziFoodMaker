@@ -42,9 +42,7 @@ export const FoodFeatch = () => {
   };
 
   const goToPreviousSlide = () => {
-    setCurrentIndex(
-      (currentIndex - 1 + products.length) % products.length
-    );
+    setCurrentIndex((currentIndex - 1 + products.length) % products.length);
   };
 
   if (products.length === 0) {
@@ -52,8 +50,8 @@ export const FoodFeatch = () => {
   }
 
   return (
-    <div className="h-[80vh] flex justify-center items-center mt-20">
-      <div className="w-full max-w-5xl bg-white shadow-lg overflow-hidden relative rounded-xl mb-20">
+    <div className="relative h-screen flex justify-center items-center bg-gray-100">
+      <div className="w-full max-w-4xl bg-white shadow-lg overflow-hidden relative rounded-xl">
         <div
           className="carousel flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)`, width: "100%" }}
@@ -61,24 +59,24 @@ export const FoodFeatch = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="flex-none w-full flex flex-col md:flex-row items-center p-8"
+              className="flex-none w-full flex flex-col md:flex-row items-center p-4 md:p-8"
             >
               <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
-                <h1 className="text-6xl font-dancing text-gray-800 mb-4">
+                <h1 className="text-4xl md:text-6xl font-dancing text-gray-800 mb-4">
                   {product?.strMeal}
                 </h1>
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-semibold text-gray-700">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-700">
                     {product?.strMeal}
                   </h2>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-base md:text-lg text-gray-600">
                     {product?.strCategory}
                   </p>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-base md:text-lg text-gray-600">
                     Heritage: {product?.strArea}
                   </p>
                 </div>
-                <div className="text-justify text-gray-700 mb-6 px-8">
+                <div className="text-justify text-gray-700 mb-6 px-9 md:px-8">
                   <p className="mb-4">{showFullDescription ? description : truncatedDescription}</p>
                   {shouldShowMoreButton && (
                     <button
@@ -91,13 +89,13 @@ export const FoodFeatch = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 flex justify-center items-center">
-                <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] overflow-hidden rounded-full shadow-lg">
+                <div className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] overflow-hidden rounded-full shadow-lg">
                   <a href="#">
-                  <img
-                    src={product?.strMealThumb}
-                    alt="Meal Thumbnail"
-                    className="w-full h-full object-cover"
-                  />
+                    <img
+                      src={product?.strMealThumb}
+                      alt="Meal Thumbnail"
+                      className="w-full h-full object-cover"
+                    />
                   </a>
                 </div>
               </div>

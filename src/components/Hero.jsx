@@ -33,7 +33,7 @@ const Hero = () => {
 
   return (
     <div
-      className="relative flex flex-col w-full h-screen bg-cover bg-center transition-all duration-500"
+      className="relative flex flex-col w-full h-[60vh] md:h-screen bg-cover bg-center transition-all duration-500"
       style={{ backgroundImage: `url(${images[currentIndex]})` }}
     >
       {/* Centered Content */}
@@ -42,7 +42,7 @@ const Hero = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
-          className="text-[#fff72e] text-9xl font-dancing mb-8"
+          className="text-[#fff72e] text-5xl md:text-9xl font-dancing mb-8"
         >
           Jozi Food Maker
         </motion.h1>
@@ -50,7 +50,7 @@ const Hero = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2, delay: 1.5 }}
-          className="text-8xl uppercase font-extrabold"
+          className=" text-3xl md:text-8xl uppercase font-extrabold"
         >
           Done right
         </motion.p>
