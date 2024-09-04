@@ -1,36 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import { FoodFeatch } from './components/FoodFeatch'
-import About from './components/About'
-import { Contact } from './components/Contact'
-import { Footer } from './components/Footer'
-
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import { MainLayout } from './components/Layout/MainLayout'
+import { HomePage } from './Pages/HomePage'
+import { FoodDetails } from './Pages/FoodDetails'
+import { MenuPage } from './Pages/MenuPage'
 
 function App() {
-  
-
-  return (
-    <>
-      <Navbar />
-      <section id='home'>
-        <Hero />
-
-      </section>
-      <section id='menu'>
-        <FoodFeatch />
-      </section>
-      <section id='about'>
-        <About />
-      </section>
-      <section id='contact'>
-        <Contact />
-      </section>
-      <Footer />
-    </>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<MainLayout/>}>
+        <Route index element={<HomePage/>}/>
+        <Route path='menu' element={<MenuPage/>}/>
+        <Route path='/menu/:id' element={<FoodDetails/>}/>
+      </Route>
+    )
   )
+
+  return <RouterProvider router={router}/>;
 }
 
-export default App
+export default App;

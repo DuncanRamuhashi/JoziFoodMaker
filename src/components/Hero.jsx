@@ -8,7 +8,7 @@ import back4 from "../assets/Images/8.jpg";
 
 const images = [back, back2, back3, back4];
 
-const Hero = () => {
+const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -33,10 +33,10 @@ const Hero = () => {
 
   return (
     <div
-      className="relative flex flex-col w-full h-[60vh] md:h-screen bg-cover bg-center transition-all duration-500"
+      className={`relative flex flex-col w-full bg-cover bg-center h-[60vh] transition-all duration-500 ${isHome ? 'md:h-screen' : 'md:h-[60vh]'}`}
       style={{ backgroundImage: `url(${images[currentIndex]})` }}
     >
-      {/* Centered Content */}
+      
       <div className="absolute inset-0 flex items-center justify-center flex-col text-white py-20">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
@@ -44,13 +44,13 @@ const Hero = () => {
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
           className="text-[#fff72e] text-5xl md:text-9xl font-dancing mb-8"
         >
-          Jozi Food Maker
+          {title}
         </motion.h1>
         <motion.p
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2, delay: 1.5 }}
-          className=" text-3xl md:text-8xl uppercase font-extrabold"
+          className={`text-3xl md:text-8xl uppercase font-extrabold ${isHome? "block" : "hidden"}`}
         >
           Done right
         </motion.p>
@@ -75,7 +75,10 @@ const Hero = () => {
           ))}
         </div>
 
-        <button onClick={handleNextClick} className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400">
+        <button
+          onClick={handleNextClick}
+          className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
+        >
           <FaChevronRight />
         </button>
       </div>
