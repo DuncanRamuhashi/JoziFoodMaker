@@ -5,21 +5,21 @@ export const Footer = () => {
       <div className='flex bg-yellow-400 h-[280px] items-center justify-center flex-col text-white'>
           <div>
 
-              <p> 6037  South BLVD CHARLOTTE, GP 0746195664   </p>
+              <p> 6037  South BLVD CHARLOTTE, KZN 0746195664   </p>
 
           </div>
-          <div className='flex space-x-28 mt-8 font-bold text-white px-6'>
+          <div className='flex md:space-x-28 space-x-4 mt-8 font-bold text-white px-6 uppercase'>
               <div>
-                  <p className>HOME</p>
+                  <a href='/' className>HOME</a>
               </div>
               <div>
-                  <p>MENU</p>
+                  <a href='/menu'>MENU</a>
               </div>
               <div>
-                  <p>CATERING MENU</p>
+                  <a href='#about'>About</a>
               </div>
               <div>
-                  <p>HIRING</p>
+                  <a href='#contact'>Contact</a>
               </div>
 
           </div>
