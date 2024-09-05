@@ -7,15 +7,21 @@ import { MenuPage } from './Pages/MenuPage'
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
+      
       <Route path='/' element={<MainLayout/>}>
         <Route index element={<HomePage/>}/>
         <Route path='menu' element={<MenuPage/>}/>
         <Route path='/menu/:id' element={<FoodDetails/>}/>
       </Route>
+      
     )
   )
 
-  return <RouterProvider router={router}/>;
+  return(
+    <div className='overflow-x-hidden'>
+      <RouterProvider router={router} />
+    </div>
+  ) ;
 }
 
 export default App;

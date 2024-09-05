@@ -27,7 +27,7 @@ export const FoodDetails = () => {
     if (loading) return <p>Loading...</p>;
     if (!foodData) return <p>No food data available.</p>;
 
-    // Split instructions into steps
+    
     const instructions = foodData.strInstructions.split('.').filter(step => step.trim()).map((step, index) => (
         <li key={index} className='mb-2'>
             {step.trim()}.
@@ -72,11 +72,10 @@ export const FoodDetails = () => {
               </ul>
             </div>
             {foodData.strYoutube && (
-              <div>
+              <div  >
                 <h2 className='text-xl font-semibold mb-4'>Recipe Video</h2>
-                <iframe
-                  width="560"
-                  height="315"
+                <iframe className='h-[315px]  md:w-[520px]'
+            
                   src={`https://www.youtube.com/embed/${foodData.strYoutube.split('v=')[1]}`}
                   title="YouTube video player"
                   frameBorder="0"

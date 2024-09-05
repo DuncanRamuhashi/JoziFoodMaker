@@ -42,7 +42,7 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
-          className="text-[#fff72e] text-5xl md:text-9xl font-dancing mb-8"
+          className="text-[#fff72e] text-5xl md:text-9xl font-dancing mb-8 px-7"
         >
           {title}
         </motion.h1>
