@@ -27,13 +27,13 @@ export const Footer = () => {
 
           <div className='flex space-x-7 mt-8 text-[12px] text-white'>
               <div>
-                  <p>500degreepizzeria 2016 </p>
+                  <p>pizzeria </p>
               </div>
               <div>
                   <p>All rights reserved</p>
               </div>
               <div>
-                  <p>Design  by DSKY </p>
+                  <p>Design  by Elizabeth, Samuel and Duncan </p>
               </div>
 
 
