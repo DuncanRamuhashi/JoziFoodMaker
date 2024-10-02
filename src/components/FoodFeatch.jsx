@@ -45,9 +45,7 @@ export const FoodFeatch = () => {
   };
 
   const goToPreviousSlide = () => {
-    setCurrentIndex(
-      (currentIndex - 1 + products.length) % products.length
-    );
+    setCurrentIndex((currentIndex - 1 + products.length) % products.length);
   };
 
   const handleImageClick = (id) => {
@@ -74,24 +72,24 @@ export const FoodFeatch = () => {
               {products.map((product) => (
                 <div
                   key={product.idMeal}
-                  className="flex-none w-full flex flex-col md:flex-row items-center p-4 md:p8"
+                  className="flex-none w-full flex flex-col md:flex-row items-center p-4 md:p-8"
                 >
                   <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
-                    <h1 className="text-4xl md:text-6xl font-dancing text-gray-800 mb-4">
+                    <h1 className="text-3xl md:text-5xl font-dancing text-gray-800 mb-4">
                       {product?.strMeal}
                     </h1>
                     <div className="text-center mb-6">
-                      <h2 className="text-xl md:text-2xl font-semibold text-gray-700">
+                      <h2 className="text-lg md:text-2xl font-semibold text-gray-700">
                         {product?.strMeal}
                       </h2>
-                      <p className="text-base md:text-lg text-gray-600">
+                      <p className="text-sm md:text-lg text-gray-600">
                         {product?.strCategory}
                       </p>
-                      <p className="text-base md:text-lg text-gray-600">
+                      <p className="text-sm md:text-lg text-gray-600">
                         Heritage: {product?.strArea}
                       </p>
                     </div>
-                    <div className="text-justify text-gray-700 mb-6 px-9 md:px-8">
+                    <div className="text-justify text-gray-700 mb-6 px-4 md:px-8">
                       <p className="mb-4">{showFullDescription ? description : truncatedDescription}</p>
                       {shouldShowMoreButton && (
                         <button
@@ -103,14 +101,19 @@ export const FoodFeatch = () => {
                       )}
                     </div>
                   </div>
-                  <div className="w-full md:w-1/2 flex justify-center items-center">
-                    <div className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] overflow-hidden rounded-full shadow-lg">
+                  <div className="relative w-full md:w-1/2 flex justify-center items-center">
+                    <div onClick={() => handleImageClick(product.idMeal)} className="w-full h-[250px] md:w-[350px] md:h-[350px] overflow-hidden rounded-full shadow-lg">
                       <img
                         src={product?.strMealThumb}
                         alt="Meal Thumbnail"
                         className="w-full h-full object-cover cursor-pointer"
                         onClick={() => handleImageClick(product.idMeal)}
                       />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer">
+                          Click the image for more detail
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

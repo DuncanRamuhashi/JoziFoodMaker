@@ -1,46 +1,36 @@
-import React from 'react'
+import React from 'react';
 
 export const Footer = () => {
   return (
-      <div className='flex bg-yellow-400 h-[280px] items-center justify-center flex-col text-white'>
-          <div>
-
-              <p> 6037  South BLVD CHARLOTTE, KZN 0746195664   </p>
-
-          </div>
-          <div className='flex md:space-x-28 space-x-4 mt-8 font-bold text-white px-6 uppercase'>
-              <div>
-                  <a href='/' className>HOME</a>
-              </div>
-              <div>
-                  <a href='/menu'>MENU</a>
-              </div>
-              <div>
-                  <a href='#about'>About</a>
-              </div>
-              <div>
-                  <a href='#contact'>Contact</a>
-              </div>
-
-          </div>
-
-
-          <div className='flex space-x-7 mt-8 text-[12px] text-white'>
-              <div>
-                  <p>pizzeria </p>
-              </div>
-              <div>
-                  <p>All rights reserved</p>
-              </div>
-              <div>
-                  <p>Design  by Elizabeth, Samuel and Duncan </p>
-              </div>
-
-
-          </div>
-
-
-
+    <div className='flex flex-col bg-yellow-400 h-auto items-center justify-center text-white py-8'>
+      <div className='text-center'>
+        <p className='text-sm md:text-base'>6037 South BLVD CHARLOTTE, KZN 0746195664</p>
       </div>
-  )
-}
+      <div className='flex flex-wrap justify-center md:space-x-20 space-x-4 mt-4 font-bold uppercase'>
+        <div>
+          <a href='/' className='hover:underline'>HOME</a>
+        </div>
+        <div>
+          <a href='/menu' className='hover:underline'>MENU</a>
+        </div>
+        <div>
+          <a href='#about' className='hover:underline'>About</a>
+        </div>
+        <div>
+          <a href='#contact' className='hover:underline'>Contact</a>
+        </div>
+      </div>
+      <div className='flex flex-wrap justify-center space-x-4 mt-4 text-[10px] md:text-sm'>
+        <div>
+          <p>pizzeria</p>
+        </div>
+        <div>
+          <p>All rights reserved</p>
+        </div>
+        <div>
+          <p>Design by Elizabeth, Samuel, and Duncan</p>
+        </div>
+      </div>
+    </div>
+  );
+};

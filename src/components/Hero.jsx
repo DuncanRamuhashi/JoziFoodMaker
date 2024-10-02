@@ -15,7 +15,6 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -33,16 +32,15 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
 
   return (
     <div
-      className={`relative flex flex-col w-full bg-cover bg-center h-[60vh] transition-all duration-500 ${isHome ? 'md:h-screen' : 'md:h-[60vh]'}`}
+      className={`relative flex flex-col w-full bg-cover bg-center transition-all duration-500 ${isHome ? 'h-screen' : 'h-[60vh]'}`}
       style={{ backgroundImage: `url(${images[currentIndex]})` }}
     >
-      
-      <div className="absolute inset-0 flex items-center justify-center flex-col text-white py-20">
+      <div className="absolute inset-0 flex items-center justify-center flex-col text-white py-10 md:py-20">
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2.5, delay: 1 }}
-          className="text-[#fff72e] text-5xl md:text-9xl font-dancing mb-8 px-7"
+          className="text-[#fff72e] text-4xl md:text-7xl lg:text-9xl font-dancing mb-4 md:mb-8 px-5 md:px-7"
         >
           {title}
         </motion.h1>
@@ -50,17 +48,17 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 10, duration: 2, delay: 1.5 }}
-          className={`text-3xl md:text-8xl uppercase font-extrabold ${isHome? "block" : "hidden"}`}
+          className={`text-2xl md:text-5xl lg:text-8xl uppercase font-extrabold ${isHome ? "block" : "hidden"}`}
         >
           Done right
         </motion.p>
       </div>
 
       {/* Navigation Buttons */}
-      <div className="absolute bottom-10 w-full flex items-center justify-center space-x-4">
+      <div className="absolute bottom-5 md:bottom-10 w-full flex items-center justify-center space-x-4">
         <button
           onClick={handlePrevClick}
-          className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
+          className="text-white text-2xl md:text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
         >
           <FaChevronLeft />
         </button>
@@ -69,7 +67,7 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
           {images.map((_, index) => (
             <span
               key={index}
-              className={`h-4 w-4 rounded-full cursor-pointer ${index === currentIndex ? 'bg-yellow-400' : 'bg-gray-500'}`}
+              className={`h-3 w-3 md:h-4 md:w-4 rounded-full cursor-pointer ${index === currentIndex ? 'bg-yellow-400' : 'bg-gray-500'}`}
               onClick={() => handleDotClick(index)}
             />
           ))}
@@ -77,7 +75,7 @@ const Hero = ({ isHome = true, title = "Jozi Food Maker" }) => {
 
         <button
           onClick={handleNextClick}
-          className="text-white text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
+          className="text-white text-2xl md:text-3xl border border-white border-r-4 p-2 rounded-full hover:bg-yellow-400"
         >
           <FaChevronRight />
         </button>
