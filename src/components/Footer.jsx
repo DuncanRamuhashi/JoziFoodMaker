@@ -11,7 +11,7 @@ export const Footer = () => {
           <a href='/' className='hover:underline'>HOME</a>
         </div>
         <div>
-        <Link to="/menu" className="block md:inline text-white py-2 md:py-0 px-4 hover:underline">Menu</Link>
+        <Link to="/menu" className="block md:inline text-white hover:underline">Menu</Link>
         </div>
         <div>
           <a href='#about' className='hover:underline'>About</a>
