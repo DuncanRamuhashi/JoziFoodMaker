@@ -11,6 +11,7 @@ function App() {
       <Route path='/' element={<MainLayout/>}>
         <Route index element={<HomePage/>}/>
         <Route path='menu' element={<MenuPage/>}/>
+        
         <Route path='/menu/:id' element={<FoodDetails/>}/>
       </Route>
       
