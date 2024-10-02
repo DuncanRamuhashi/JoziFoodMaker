@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
     <div className='flex flex-col bg-yellow-400 h-auto items-center justify-center text-white py-8'>
@@ -11,7 +11,7 @@ export const Footer = () => {
           <a href='/' className='hover:underline'>HOME</a>
         </div>
         <div>
-          <a href='/menu' className='hover:underline'>MENU</a>
+        <Link to="/menu" className="block md:inline text-white py-2 md:py-0 px-4 hover:underline">Menu</Link>
         </div>
         <div>
           <a href='#about' className='hover:underline'>About</a>
